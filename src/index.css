@@ -10,3 +10,8 @@ body {
 
 }
 * { box-sizing: border-box; }
+
+.App{
+  max-width: 1024px;
+  margin: 0 auto;
+}

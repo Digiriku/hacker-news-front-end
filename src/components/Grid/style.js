@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 
 export default styled.div`
-  max-width: 72rem;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -12,7 +11,7 @@ export default styled.div`
   align-items: stretch;
   align-content: flex-start;
 
-  &:after {
-    clear: both;
+  @media (max-width: 420px) {
+    flex-direction: column;
   }
 `

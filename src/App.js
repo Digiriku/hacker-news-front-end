@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import {loadData, loadArticles} from './utils/api';
-import Grid from './components/Grid'
-import { idata } from './idata.js'
+import Grid from './components/Grid';
+import Header from './components/Header';
+import { idata } from './idata.js';
+import styled from 'styled-components';
+import Loading from './components/Loading';
+
+
+
+const AppTitleWrapper =  styled.h1`
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff6500;
+`;
+
 
 class App extends Component {
   state = { loading: false, data: idata };
@@ -21,7 +33,7 @@ class App extends Component {
   //   }
   // }
 
- 
+
   componentDidMount() {
     // this.load();
   }
@@ -29,10 +41,12 @@ class App extends Component {
 
   render() {
     // console.log(this.state);
-    // 
-    if (this.state.loading === true) return ( <div>Loading</div> );
+    //
+    if (this.state.loading === true) return ( <div>Loading <Loading/> </div> );
     return (
       <div className="App">
+        <Header/>
+        <AppTitleWrapper>Hacker News Top 500 Articles</AppTitleWrapper>
         <Grid articles={this.state.data} />
       </div>
     );
@@ -40,6 +54,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-  

@@ -26,19 +26,23 @@ class GridItem extends Component {
 	  }));
 	}
 	render() {
-		const {title, author, text, score} = this.props;
+		const {title, author, text, score, url} = this.props;
 		const btnClass = classNames('grid-item', {
       		'is-expanded': this.state.isExpanded
     	});
 	  	return (
+
 		    <GridWrapperItem className={btnClass} onClick={this.handleClick}>
 		    <div className="grid-item-content">
 		    	<Title content={title} />
 		    	<Author content={author} />
 		    	<Score content={score} />
-		    	<Text content={text} />		
-		    	</div>    	
+		    	<a href={url} target="_blank">
+						<Text content={text} />
+					</a>
+		    	</div>
 		    </GridWrapperItem>
+
 		)
 	}
 }
