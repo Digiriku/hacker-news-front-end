@@ -1,21 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {loadData, loadArticles} from './utils/api';
+import Grid from './components/Grid'
+import { idata } from './idata.js'
 
 class App extends Component {
+  state = { loading: false, data: idata };
+  // load = this.load.bind(this);
+
+  // async load(...args) {
+  //   try {
+  //     this.setState({ loading: true, error: false });
+  //     const articlesArray = await loadData(...args);
+  //     const data = await loadArticles(articlesArray);
+
+  //     // console.log(data);
+  //     // console.log(typeof data);
+  //     this.setState({ loading: false, data: data });
+  //   } catch (ex) {
+  //     this.setState({ loading: false, error: true });
+  //   }
+  // }
+
+ 
+  componentDidMount() {
+    // this.load();
+  }
+
+
   render() {
+    // console.log(this.state);
+    // 
+    if (this.state.loading === true) return ( <div>Loading</div> );
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Grid articles={this.state.data} />
       </div>
     );
   }
 }
 
 export default App;
+
+
+  
