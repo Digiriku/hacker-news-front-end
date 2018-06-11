@@ -3,10 +3,10 @@ import Title from '../Title';
 import Author from '../Author';
 import Text from '../Text';
 import Score from '../Score';
+import DateTime from '../Date';
 import GridWrapperItem from './style';
 import classNames from 'classnames';
 
-// const GridItem = (props) => {
 class GridItem extends Component {
 
 	constructor(props) {
@@ -26,21 +26,23 @@ class GridItem extends Component {
 	  }));
 	}
 	render() {
-		const {title, author, text, score, url} = this.props;
+		const {title, author, text, score, url, time} = this.props;
 		const btnClass = classNames('grid-item', {
       		'is-expanded': this.state.isExpanded
     	});
 	  	return (
 
 		    <GridWrapperItem className={btnClass} onClick={this.handleClick}>
-		    <div className="grid-item-content">
-		    	<Title content={title} />
-		    	<Author content={author} />
-		    	<Score content={score} />
-		    	<a href={url} target="_blank">
-						<Text content={text} />
-					</a>
-		    	</div>
+			    <div className="grid-item-content">
+			    	<Title content={title} />
+			    	<Author content={author} />
+			    	<Score content={score} />
+			    	<a href={url} target="_blank">
+							<Text content={text} />
+						</a>
+			    	
+			    	<DateTime content={time} />
+			    </div>
 		    </GridWrapperItem>
 
 		)

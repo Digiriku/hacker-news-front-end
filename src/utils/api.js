@@ -20,15 +20,14 @@ const sleep = (msecs) => (
  * @param  {[type]} q [description]
  * @return {[type]}   [description]
  */
-export const loadData = (q) => {
-    // const encodedQueryString = encodeURIComponent(q);
+export const loadData = () => {
     const url = `${hnApiPath}topstories.json`
 
     return axios
         .get(url)
         .then(throwIfError)
-        .then(getUrl);
-
+        .then(getUrl)
+        .then(sleep(1000));
 };
 
 
@@ -38,11 +37,7 @@ export const loadArticles = (articlesArray) => {
         return axios
             .get(`${hnApiPath}/item/${x}.json`)
             .then(throwIfError)
-            .then((result) => {
-                // console.log(result.data)
-
-                return result.data;
-            })
+            .then((result) => result.data)
             .then(sleep(1000));
 
     });

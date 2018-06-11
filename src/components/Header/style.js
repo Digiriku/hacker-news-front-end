@@ -27,6 +27,8 @@ export const HeaderWrapperInner = styled.div`
 
 export const ListWrapper = styled.div`
   display: flex;
+  width: 100%;
+  flex-wrap: wrap;
   div{
     margin-right: 0.5rem;
     cursor: pointer;
