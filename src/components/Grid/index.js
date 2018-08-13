@@ -1,18 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 import GridItem from '../GridItem';
 import GridWrapper from './style';
 
-const Grid = (props) => {
+class Grid extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { expandedIndex: null };
 
-const {articles} = props;
+		this.handleExpansion = this.handleExpansion.bind(this);
+	}
 
-const displayArticles = articles.map((a, i) => <GridItem key={i} id={a.id} title={a.title} author={a.by} score={a.score} url={a.url} time={a.time} text={a.text} /> );
+	handleExpansion(id) {
+		this.setState({ expandedIndex: id });
+	}
 
-  return(
-    <GridWrapper>
-    	{displayArticles}
-    </GridWrapper>
-  );
+	render() {
+		const { articles } = this.props;
+		const expandedIndex = this.state.expandedIndex;
+
+		const displayArticles = articles.map((a, i) => (
+			<GridItem
+				key={a.id}
+				id={a.id}
+				title={a.title}
+				author={a.by}
+				score={a.score}
+				url={a.url}
+				time={a.time}
+				text={a.text}
+				handleExpansion={this.handleExpansion}
+				isExpanded={expandedIndex === a.id}
+			/>
+		));
+
+		return <GridWrapper>{displayArticles}</GridWrapper>;
+	}
 }
 
 export default Grid;
