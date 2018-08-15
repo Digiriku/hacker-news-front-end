@@ -2,18 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Header from './components/Header';
+import DefaultLayout from './components/DefaultLayout';
 import registerServiceWorker from './registerServiceWorker';
-import { ThemeProvider } from 'styled-components';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-const theme = {
-  baseUnit: '8px',
-  colors: {
-    main: '#ff6500',
-    dark: '#A34100',
-    light: '#FFB17D'
-  }
+const AppRoute = () => (
+	<BrowserRouter>
+		<div className="app">
+			<Switch>
+				<DefaultLayout exact path="/" component={App} />
+			</Switch>
+		</div>
+	</BrowserRouter>
+);
 
-}
-
-ReactDOM.render(<ThemeProvider theme={theme}><App /></ThemeProvider>, document.getElementById('root'));
+ReactDOM.render(<AppRoute />, document.getElementById('root'));
 registerServiceWorker();
