@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { loadData, loadArticles } from './utils/api';
-import Grid from './components/Grid';
-import Header from './components/Header';
+import { loadData, loadArticles } from '../../utils/api';
 import styled from 'styled-components';
-import Loading from './components/Loading';
+import Loading from '../Loading';
+import Grid from '../Grid';
 
 const AppTitleWrapper = styled.h1`
 	font-size: 3rem;
@@ -12,7 +11,7 @@ const AppTitleWrapper = styled.h1`
 	margin: 2rem 1rem;
 `;
 
-class App extends Component {
+class Ask extends Component {
 	state = { loading: false, data: [] };
 
 	async load(...args) {
@@ -27,7 +26,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.load('topstories.json');
+		this.load('askstories.json');
 	}
 
 	render() {
@@ -40,11 +39,11 @@ class App extends Component {
 		if (this.state.error === true) return <AppTitleWrapper>Error</AppTitleWrapper>;
 		return (
 			<div className="App">
-				<AppTitleWrapper>Top Articles</AppTitleWrapper>
+				<AppTitleWrapper>Ask Stories</AppTitleWrapper>
 				<Grid articles={this.state.data} />
 			</div>
 		);
 	}
 }
 
-export default App;
+export default Ask;
