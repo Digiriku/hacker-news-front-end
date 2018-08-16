@@ -10,11 +10,7 @@ This app uses the following:
 
 - [React] - I have chosen to react as it provides a simple approach to decalre UI elements in a self-contained manner. The modular nature of react components has previously provided me with a good introduction to unit and integration testing.
 
-- [Styled Components] - I have chosen to use styled-components to style the app. This library provides a CSS in JS apporach.
-
-      	It provides predictablity and consistency, in the sense that, styles are scoped to the component. As a result the likelhood of styles leaking/clashing with other DOM elemnts, is dramatically reduced.
-
-      	In addition to this, styled-components uses a familiar CSS syntax and it provides SASS support. This is appealing, as my chosen pre-processor would normally be SCSS.
+- [Styled Components] - I have chosen to use styled-components to style the app. This library provides a CSS in JS apporach. It provides predictablity and consistency, in the sense that, styles are scoped to the component. As a result the likelhood of styles leaking/clashing with other DOM elemnts, is dramatically reduced. In addition to this, styled-components uses a familiar CSS syntax and it provides SASS support. This is appealing, as my chosen pre-processor would normally be SCSS.
 
 - [Create React App] - Used to Bootstrap this app
 - [axios] - Used to make HTTP requests to Hacker News API
