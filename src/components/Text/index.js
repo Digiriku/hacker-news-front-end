@@ -13,9 +13,6 @@ const truncated =  truncate(props.content, {
 
 const striped = striptags(truncated,  [], '\n');
 
-// console.log( unescaped(truncated))
-
-
   return(
     <TextWrapper>
     { ReactHtmlParser(striped) }
