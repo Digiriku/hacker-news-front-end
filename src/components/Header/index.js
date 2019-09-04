@@ -15,6 +15,8 @@ const Header = props => {
 						<div>News</div>
 						<div>Comments</div>
 						<div>Show</div>
+						<div>Other thing</div>
+						<img src="thing.com"/>
 						<div>
 							<Link to="/askstories">Ask</Link>
 						</div>
